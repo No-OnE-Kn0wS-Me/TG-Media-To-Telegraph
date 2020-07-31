@@ -9,7 +9,7 @@ from telegraph import upload_file
 async def start(client, message):
     await client.send_message(
         chat_id=message.chat.id,
-        text=f"<b>Hello</b> {message.from_user.first_name},\nI'm a Telegram Bot To Telegra.ph Image Uploader Bot By @MaI_bOtS",
+        text=f"<b>Hello</b> {message.from_user.first_name},\n I'm a Telegram Bot Which Helps You To Upload Images Into Telegra.ph \n\n <b>Made  By:</b> @MaI_bOtS",
         reply_to_message_id=message.message_id
     )
     
@@ -20,20 +20,19 @@ async def getimage(client, message):
         os.makedirs(location)
     imgdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id) +".jpg"
     dwn = await client.send_message(
-          text="Downloading... Pls Wait.. ",
+          text="<b>Downloading... Pls Wait..</b> ",
           chat_id = message.chat.id,
           reply_to_message_id=message.message_id
           )          
     await client.download_media(
             message=message,
-            file_name=imgdir, 
-            caption="Successfully Uploaded By @Mai_BotS"
+            file_name=imgdir
         )
-    await dwn.edit_text("Uploading...")
+    await dwn.edit_text("<b>Uploading...</b>")
     try:
         response = upload_file(imgdir)
     except Exception as error:
-        await dwn.edit_text(f"Oops Something Went Wrong\n{error} Contact @Mai_BoTs")
+        await dwn.edit_text(f"<b>Oops Something Went Wrong</b>\n{error} Contact @Mai_BoTs")
         return
     await dwn.edit_text(f"https://telegra.ph{response[0]}")
     try:
