@@ -1,6 +1,7 @@
 # This is used for educational purposes only
 # Copyright of all images uploaded by this bot is goes to respected owners
 
+import Telegraph
 import os
 from pyrogram import Client,Filters
 from telegraph import upload_file
