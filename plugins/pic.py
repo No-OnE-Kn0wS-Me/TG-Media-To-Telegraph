@@ -13,6 +13,8 @@ async def start(client, message):
         text=f"<b>Hello</b> {message.from_user.first_name},\n I'm a Telegram Bot Which Helps You To Upload Images Into Telegra.ph \n\n <b>Made  By:</b> @MaI_bOtS",
         reply_to_message_id=message.message_id
     )
+
+r_message = await event.get_reply_message()
     
 @Client.on_message(Filters.photo)
 async def getimage(client, message):
@@ -54,7 +56,7 @@ async def gettxt(client, message):
           reply_to_message_id=message.message_id
           )          
     await client.download_media(
-            message=message.from_id
+            r_message
         )
     await dwn.edit_text("<b>Uploading...</b>")
     try:
