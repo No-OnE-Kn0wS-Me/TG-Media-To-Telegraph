@@ -1,7 +1,7 @@
 # This is used for educational purposes only
 # Copyright of all images uploaded by this bot is goes to respected owners
 from typing import Optional, List
-
+import logging
 from telegram import Message, Update, Bot, User
 from telegram import MessageEntity
 from telegram.ext import Filters, MessageHandler, run_async
@@ -10,6 +10,9 @@ import os
 from telethon import events
 from pyrogram import Client,Filters
 from telegraph import upload_file
+
+LOGGER = logging.getLogger(__name__)
+
 
 @Client.on_message(Filters.command(["start"]))
 async def start(client, message):
