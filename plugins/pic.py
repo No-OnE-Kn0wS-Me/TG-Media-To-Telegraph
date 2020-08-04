@@ -14,8 +14,6 @@ async def start(client, message):
         reply_to_message_id=message.message_id
     )
 
-r_message = await event.get_reply_message()
-    
 @Client.on_message(Filters.photo)
 async def getimage(client, message):
     location = "./FILES"
@@ -49,6 +47,7 @@ async def gettxt(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
         os.makedirs(location)
+    r_message = await event.get_reply_message()
     txtdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id)
     dwn = await client.send_message(
           text="<b>Downloading... Pls Wait..</b> ",
