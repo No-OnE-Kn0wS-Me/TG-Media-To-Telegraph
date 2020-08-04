@@ -3,6 +3,7 @@
 
 import telegraph
 import os
+from telethon import events
 from pyrogram import Client,Filters
 from telegraph import upload_file
 
