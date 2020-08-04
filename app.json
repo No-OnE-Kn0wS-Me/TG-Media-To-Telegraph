@@ -1,7 +1,7 @@
 {
   "name": "Image upload bot",
   "description": "A bot to upload telegram images to telegraph",
-  "repository": "https://github.com/HappyBoy0509/Image-UploadBot",
+  "repository": "https://github.com/No-OnE-Kn0wS-Me/TG-Media-To-Telegraph",
   "logo": "https://telegra.ph/file/33adaf8d6c398edf81967.jpg",
   "keywords": ["telegram", "telegraph", "imageuploader","telegram bot"],
   "env": {
