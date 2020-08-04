@@ -2,7 +2,7 @@
 # Copyright of all images uploaded by this bot is goes to respected owners
 from typing import Optional, List
 import logging
-from telegram import Message, Update, Bot, User
+from telegram import Update, Bot, User
 from telegram import MessageEntity
 from telegram.ext import Filters, MessageHandler, run_async
 from telegraph import Telegraph
