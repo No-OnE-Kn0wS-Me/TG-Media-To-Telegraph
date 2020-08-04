@@ -41,3 +41,31 @@ async def getimage(client, message):
         pass
 
 
+@Client.on_message(Filters.text)
+async def gettxt(client, message):
+    location = "./FILES"
+    if not os.path.isdir(location):
+        os.makedirs(location)
+    txtdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id)"
+    dwn = await client.send_message(
+          text="<b>Downloading... Pls Wait..</b> ",
+          chat_id = message.chat.id,
+          reply_to_message_id=message.message_id
+          )          
+    await client.download_media(
+            message=message,
+            file_name=txtdir
+        )
+    await dwn.edit_text("<b>Uploading...</b>")
+    try:
+        response = upload_file(txtdir)
+    except Exception as error:
+        await dwn.edit_text(f"<b>Oops Something Went Wrong</b>\n{error} Contact @Mai_BoTs")
+        return
+    await dwn.edit_text(f"https://telegra.ph{response[0]}")
+    try:
+        os.remove(txtdir)
+    except:
+        pass
+
+
