@@ -1,7 +1,7 @@
 # This is used for educational purposes only
 # Copyright of all images uploaded by this bot is goes to respected owners
 
-import Telegraph
+import telegraph
 import os
 from pyrogram import Client,Filters
 from telegraph import upload_file
@@ -46,7 +46,7 @@ async def getimage(client, message):
 def teleGraph(short_name,page_title,page_contents):
     # simple function to make a telegraph page 
     
-    telegraphy = Telegraph()
+    telegraphy = telegraph()
     telegraphy.create_account(short_name=short_name)
 
     response = telegraphy.create_page(
