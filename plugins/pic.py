@@ -52,7 +52,7 @@ def teleGraph(short_name,page_title,page_contents):
 
     response = telegraphy.create_page(
             page_title,
-            html_content=page_contents
+            html_content
         )
 
     return response["url"]
