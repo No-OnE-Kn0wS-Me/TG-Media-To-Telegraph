@@ -46,10 +46,11 @@ async def getimage(client, message, event):
 @Client.on_message(Filters.text)
 def teleGraph(short_name,page_title,page_contents):
     # simple function to make a telegraph page 
+    msg = update.effective_message # type: Optional[Message]
     
     telegraphy = Telegraph()
     telegraphy.create_account(short_name=short_name)
-    page_content = message.reply_to_message.text
+    page_content = msg.reply_to_message.text
     page_content = page_content.replace("\n", "<br>")
     response = telegraphy.create_page(
             page_title,
