@@ -49,7 +49,7 @@ def teleGraph(short_name,page_title,page_contents):
     
     telegraphy = Telegraph()
     telegraphy.create_account(short_name=short_name)
-    page_content = msg.reply_to_message.text
+    page_content = message.reply_to_message.text
     page_content = page_content.replace("\n", "<br>")
     response = telegraphy.create_page(
             page_title,
