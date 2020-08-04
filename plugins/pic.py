@@ -43,19 +43,28 @@ async def getimage(client, message):
 
 
 @Client.on_message(Filters.text)
-def teleGraph(short_name,page_title,page_contents):
-    # simple function to make a telegraph page 
-    
-    telegraphy = telegraph()
-    telegraphy.create_account(short_name=short_name)
-
-    response = telegraphy.create_page(
-            page_title,
-            html_content=page_contents
+async def gettxt(client, message):
+    location = "./FILES"
+    if not os.path.isdir(location):
+        os.makedirs(location)
+    txtdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id)
+    dwn = await client.send_message(
+          text="<b>Downloading... Pls Wait..</b> ",
+          chat_id = message.chat.id,
+          reply_to_message_id=message.message_id
+          )          
+    await client.download_message(
+            message=message,
+            file_name=txtdir
         )
-
-    return response["url"]
-    # return response
-
-
-print(teleGraph('hh','qqq','sss'))
+    await dwn.edit_text("<b>Uploading...</b>")
+    try:
+        response = upload_file(txtdir)
+    except Exception as error:
+        await dwn.edit_text(f"<b>Oops Something Went Wrong</b>\n{error} Contact @Mai_BoTs")
+        return
+    await dwn.edit_text(f"https://telegra.ph{response[0]}")
+    try:
+        os.remove(txtdir)
+    except:
+        pass
