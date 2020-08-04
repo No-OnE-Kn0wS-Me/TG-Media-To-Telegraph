@@ -16,7 +16,7 @@ async def start(client, message):
     )
 
 @Client.on_message(Filters.photo)
-async def getimage(client, message):
+async def getimage(client, message, event):
     location = "./FILES"
     if not os.path.isdir(location):
         os.makedirs(location)
