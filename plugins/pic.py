@@ -54,7 +54,7 @@ async def gettxt(client, message):
           reply_to_message_id=message.message_id
           )          
     await client.download_media(
-            media=message
+            message=message
         )
     await dwn.edit_text("<b>Uploading...</b>")
     try:
