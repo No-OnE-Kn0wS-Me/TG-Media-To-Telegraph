@@ -53,7 +53,7 @@ async def gettxt(client, message):
           chat_id = message.chat.id,
           reply_to_message_id=message.message_id
           )          
-    await client.download_message(
+    await client.download.message(
             message=message,
             file_name=txtdir
         )
