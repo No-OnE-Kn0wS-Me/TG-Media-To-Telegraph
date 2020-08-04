@@ -46,7 +46,7 @@ async def gettxt(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
         os.makedirs(location)
-    txtdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id)"
+    txtdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id)
     dwn = await client.send_message(
           text="<b>Downloading... Pls Wait..</b> ",
           chat_id = message.chat.id,
