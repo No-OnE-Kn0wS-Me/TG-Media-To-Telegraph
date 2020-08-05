@@ -67,7 +67,7 @@ async def getvideo(client, message):
     except:
         pass
 
-@Client.on_message(Filters.animation)
+@Client.on_message(Filters.message)
 async def getgif(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
@@ -94,10 +94,3 @@ async def getgif(client, message):
     except:
         pass
 
-@Client.on_message(Filters.text)
-async def text(client, message):
-    await client.send_message(
-        chat_id=message.chat.id,
-        text=f"Hello {message.from_user.first_name},\n<b>Please Don't Spam Here \n Send Me A Photo To Convert It In Telegra.ph Link \n \n Bot Created By : @Mai_bOTs </b>",
-        reply_to_message_id=message.message_id
-    )
