@@ -67,6 +67,33 @@ async def getvideo(client, message):
     except:
         pass
 
+@Client.on_message(Filters.gif)
+async def getgif(client, message):
+    location = "./FILES"
+    if not os.path.isdir(location):
+        os.makedirs(location)
+    gifdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id) +".gif"
+    dwn = await client.send_message(
+          text="Downloading...",
+          chat_id = message.chat.id,
+          reply_to_message_id=message.message_id
+          )          
+    await client.download_media(
+            message=message,
+            file_name=gifdir
+        )
+    await dwn.edit_text("Uploading...")
+    try:
+        response = upload_file(gifdir)
+    except Exception as error:
+        await dwn.edit_text(f"Oops Something Went Wrong\n{error} Contact @No_OnE_Kn0wS_Me")
+        return
+    await dwn.edit_text(f"https://telegra.ph{response[0]}")
+    try:
+        os.remove(gifdir)
+    except:
+        pass
+
 @Client.on_message(Filters.text)
 async def text(client, message):
     await client.send_message(
