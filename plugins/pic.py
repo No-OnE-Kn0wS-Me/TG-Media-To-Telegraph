@@ -1,4 +1,4 @@
-# This is bot coded by Happyboy and used for educational purposes only
+# This is bot coded by @No_OnE_Kn0wS_Me and used for educational purposes only
 # Copyright of all images uploaded by this bot is goes to respected owners
 
 import os
@@ -45,7 +45,7 @@ async def getvideo(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
         os.makedirs(location)
-    viddir = location + "/" + str(message.chat.id) + "/" + str(message.message_id) +".mp4" +\n \n Thank You For Using Me \n Support Channel @MaizBots "
+    viddir = location + "/" + str(message.chat.id) + "/" + str(message.message_id) +".mp4"
     dwn = await client.send_message(
           text="Downloading...",
           chat_id = message.chat.id,
