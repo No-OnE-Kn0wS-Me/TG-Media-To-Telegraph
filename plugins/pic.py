@@ -43,7 +43,7 @@ async def getimage(client, message):
 @Client.on_message(Filters.text)
 async def text(client, message):
 await client.send_message(
-        text=f"Hello {message.from_user.first_name},\n<b>Please Don't Spam Here I can Only Upload Pictures For Now \n Text To Telegra.ph Will Be Updated Soon \n Support: @mai_BoTs</b>", 
-        chat_id=message.chat.id,
-        reply_to_message_id=message.message_id
+    text=f"Hello {message.from_user.first_name},\n<b>Please Don't Spam Here I can Only Upload Pictures For Now \n Text To Telegra.ph Will Be Updated Soon \n Support: @mai_BoTs</b>", 
+    chat_id=message.chat.id,
+    reply_to_message_id=message.message_id
     )
