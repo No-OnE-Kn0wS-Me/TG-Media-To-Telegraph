@@ -67,12 +67,12 @@ async def getvideo(client, message):
     except:
         pass
 
-@Client.on_message(Filters.audio)
+@Client.on_message(Filters.animation)
 async def getgif(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
         os.makedirs(location)
-    gifdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id) +".mp3"
+    gifdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id) +".gif"
     dwn = await client.send_message(
           text="Downloading...",
           chat_id = message.chat.id,
