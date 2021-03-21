@@ -39,6 +39,6 @@ async def start(client, message):
 async def text(client, message):
     await client.send_message(
         chat_id=message.chat.id,
-        text=f"Hello {message.from_user.first_name},\n<b> If You Didn't Get Your Requested Movie Please Click On The Must Read Button",
+        text=f"Hello {message.from_user.first_name},\n<b> If You Didn't Get Your Requested Movie Please Check The Movie Spelling In [Google](www.google.com) Then Search In Shared Files With Correct Name",
         reply_to_message_id=message.message_id
     )
