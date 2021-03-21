@@ -35,7 +35,7 @@ async def start(client, message):
         reply_to_message_id=message.message_id
     )
 
-@Client.on_message(filters.text & Filters.group)
+@Client.on_message(filters.text & filters.group)
 async def text(client, message):
     await client.send_message(
         chat_id=message.chat.id,
