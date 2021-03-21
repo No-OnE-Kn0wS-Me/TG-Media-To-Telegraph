@@ -25,6 +25,7 @@ async def start(client, message):
             ]
         ),
 reply_to_message_id=message.message_id
+) 
 
 @Client.on_message(filters.command(["help"]))
 async def start(client, message):
