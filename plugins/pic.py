@@ -6,13 +6,12 @@ from pyrogram import Client,Filters
 from telegraph import upload_file
 
 
-STICKER_PCK = 'CAACAgUAAxkBAAIFNmBXNYZaoplsDsP_lyh5Lo170CLjAAKVAAMFqVIzXbJ5Od2V8nseBA' 
 
 @Client.on_message(Filters.command(["start"]))
 async def start(client, message):
-    await client.send_sticker(
+    await client.send_message(
         chat_id=message.chat.id,
-        STICKER_PCK, 
+        text=f"Hello {message.from_user.first_name},\n<b>I'm a Telegram To Telegra.ph Image/Video Uploader Bot. \n Created By @MaI_BotS</b> \n  Do /help For More",
         reply_to_message_id=message.message_id
     )
 
