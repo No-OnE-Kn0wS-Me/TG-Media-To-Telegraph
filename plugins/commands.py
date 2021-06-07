@@ -6,7 +6,7 @@ from telegraph import upload_file
 
 
 
-@Client.on_message(Filters.command(["start"]))
+@Client.on_message(filters.command(["start"]))
 async def start(client, message):
     await client.send_message(
         chat_id=message.chat.id,
@@ -14,7 +14,7 @@ async def start(client, message):
         reply_to_message_id=message.message_id
     )
 
-@Client.on_message(Filters.command(["help"]))
+@Client.on_message(filters.command(["help"]))
 async def start(client, message):
     await client.send_message(
         chat_id=message.chat.id,
@@ -22,7 +22,7 @@ async def start(client, message):
         reply_to_message_id=message.message_id
     )
     
-@Client.on_message(Filters.photo)
+@Client.on_message(filters.photo)
 async def getimage(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
@@ -49,7 +49,7 @@ async def getimage(client, message):
     except:
         pass
 
-@Client.on_message(Filters.video)
+@Client.on_message(filters.video)
 async def getvideo(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
@@ -76,7 +76,7 @@ async def getvideo(client, message):
     except:
         pass
 
-@Client.on_message(Filters.stickers)
+@Client.on_message(filters.stickers)
 async def stikcer_s(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
