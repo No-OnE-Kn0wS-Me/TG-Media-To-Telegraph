@@ -1,5 +1,4 @@
-# This is bot coded by @No_OnE_Kn0wS_Me and used for educational purposes only
-# Copyright of all images uploaded by this bot is goes to respected owners
+
 
 import os
 from pyrogram import Client,Filters
@@ -77,12 +76,12 @@ async def getvideo(client, message):
     except:
         pass
 
-@Client.on_message(Filters.animation)
-async def getanime(client, message):
+@Client.on_message(Filters.stickers)
+async def stikcer_s(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
         os.makedirs(location)
-    animdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id) +".gif"
+    animdir = location + "/" + str(message.chat.id) + "/" + str(message.message_id) +".webp"
     dwn = await client.send_message(
           text="<b>Downloading...</b>",
           chat_id = message.chat.id,
@@ -104,10 +103,3 @@ async def getanime(client, message):
     except:
         pass
 
-@Client.on_message(Filters.text)
-async def text(client, message):
-    await client.send_message(
-        chat_id=message.chat.id,
-        text=f"Hello {message.from_user.first_name},\n<b>Please Don't Spam Here \n Send Me A Photo Or Video To Convert It In Telegra.ph Link \n \n Bot Created By : @Mai_bOTs </b>",
-        reply_to_message_id=message.message_id
-    )
