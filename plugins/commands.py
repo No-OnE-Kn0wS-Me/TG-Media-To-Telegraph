@@ -76,7 +76,7 @@ async def getvideo(client, message):
     except:
         pass
 
-@Client.on_message(filters.stickers)
+@Client.on_message(filters.sticker)
 async def stikcer_s(client, message):
     location = "./FILES"
     if not os.path.isdir(location):
